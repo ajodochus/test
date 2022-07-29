@@ -1,4 +1,7 @@
 # TODO
+- handling dialog in .. for "new folder"
+- persistent login info (cookie, session)
+- tests one after another (no async/await): test.describe.configure({ mode: 'serial' });
 - using docker for application under test
 - using docker for playwright ???
 - howto: setting up CI
