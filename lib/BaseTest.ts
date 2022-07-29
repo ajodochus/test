@@ -5,21 +5,26 @@ import { MyAddressesPage } from '@pages/MyAddressesPage'
 import { MyPersonalInformationPage } from '@pages/MyPersonalInformationPage';
 
 import { TngLoginPage } from '@pages/TngLoginPage';
+import { TngVersioningPage } from '@pages/TngVersioningPage';
 
 const test = baseTest.extend<{
-    loginPage: LoginPage;
     tngloginPage: TngLoginPage;
+    tngVersioningPage: TngVersioningPage;
 
+    loginPage: LoginPage;
     myAccountPage: MyAccountPage;
     myAddressesPage: MyAddressesPage;
     myPersonalInformationPage: MyPersonalInformationPage;
 
 }>({
-    loginPage: async ({ page }, use) => {
-        await use(new LoginPage(page));
-    },
     tngloginPage: async ({ page }, use) => {
         await use(new TngLoginPage(page));
+    },
+    tngVersioningPage: async ({ page }, use) => {
+        await use(new TngVersioningPage(page));
+    },
+    loginPage: async ({ page }, use) => {
+        await use(new LoginPage(page));
     },
     myAccountPage: async ({ page }, use) => {
         await use(new MyAccountPage(page));
