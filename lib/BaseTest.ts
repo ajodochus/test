@@ -4,8 +4,12 @@ import { MyAccountPage } from '@pages/MyAccountPage';
 import { MyAddressesPage } from '@pages/MyAddressesPage'
 import { MyPersonalInformationPage } from '@pages/MyPersonalInformationPage';
 
+import { TngLoginPage } from '@pages/TngLoginPage';
+
 const test = baseTest.extend<{
     loginPage: LoginPage;
+    tngloginPage: TngLoginPage;
+
     myAccountPage: MyAccountPage;
     myAddressesPage: MyAddressesPage;
     myPersonalInformationPage: MyPersonalInformationPage;
@@ -13,6 +17,9 @@ const test = baseTest.extend<{
 }>({
     loginPage: async ({ page }, use) => {
         await use(new LoginPage(page));
+    },
+    tngloginPage: async ({ page }, use) => {
+        await use(new TngLoginPage(page));
     },
     myAccountPage: async ({ page }, use) => {
         await use(new MyAccountPage(page));

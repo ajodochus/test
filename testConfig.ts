@@ -11,5 +11,7 @@ export const testConfig = {
     dbServerName: ``,
     dbPort: ``,
     dbName: ``,
-    tng: `https://review-create-doc-pn8ux3.kube.devtng.com/`
+    tng: `https://review-create-doc-pn8ux3.kube.devtng.com/`,
+    tng_username: 'test1',
+    tng_password: 'test'
 }

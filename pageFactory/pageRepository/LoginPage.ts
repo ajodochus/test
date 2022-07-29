@@ -24,4 +24,8 @@ export class LoginPage extends LoginPageObjects{
         await webActions.enterElementText(LoginPageObjects.PASSWORD_EDITBOX_ID, decipherPassword);
         await webActions.clickElement(LoginPageObjects.SIGN_IN_BUTTON_ID);
     }
+
+    async test_func(): Promise<void> {
+        //
+    }
 }
