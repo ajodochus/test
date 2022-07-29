@@ -9,6 +9,13 @@ if (!ENV || !['tng', `qa`, `dev`, `qaApi`, `devApi`].includes(ENV)) {
 }
 
 const config: PlaywrightTestConfig = {
+/* use???
+use: {
+}
+*/
+
+// ?????   testMatch: ["functional/TngLogin.test.ts"];
+
 
   //Global Setup to run before all tests
   globalSetup: `./global-setup`,
@@ -68,9 +75,9 @@ const config: PlaywrightTestConfig = {
         viewport: { width: 1500, height: 730 },
         ignoreHTTPSErrors: true,
         acceptDownloads: true,
-        screenshot: `only-on-failure`,
+        screenshot: 'on',
         video: `retain-on-failure`,
-        trace: `retain-on-failure`,
+        trace: 'on',
         launchOptions: {
           slowMo: 0
         }

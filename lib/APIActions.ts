@@ -7,7 +7,7 @@ export class APIActions {
         await expect(response, `200 Status code was not displayed.`).toBeOK();
     }
 
-    async verifyResponseBody(expectedResponseBodyParams: string, responsePart: JSON, responseType: string): Promise<void> {
+    async verifyHeaderKeysResponseBody(expectedResponseBodyParams: string, responsePart: JSON, responseType: string): Promise<void> {
         let status = true;
         let fieldNames = `Parameter`;
         const headers = expectedResponseBodyParams.split("|");

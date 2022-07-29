@@ -11,7 +11,7 @@ test(`@API postUsers`, async ({ request }) => {
     await apiActions.verifyStatusCode(response);
 
     const responseBodyParams = (await apiActions.readValuesFromTextFile(`postUsers`)).split(`#`)[1];
-    await apiActions.verifyResponseBody(responseBodyParams, await response.json(), `Response Body`);
+    await apiActions.verifyHeaderKeysResponseBody(responseBodyParams, await response.json(), `Response Body`);
 
     const responseBodyHeaders = (await apiActions.readValuesFromTextFile(`postUsers`)).split(`#`)[2];
     await apiActions.verifyResponseHeader(responseBodyHeaders, response.headersArray(), `Respomse Headers`);

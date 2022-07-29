@@ -26,6 +26,7 @@ export class LoginPage extends LoginPageObjects{
     }
 
     async test_func(): Promise<void> {
-        //
+       // const pass_encrypted = await webActions.encryptPassword("hello");
+        
     }
 }

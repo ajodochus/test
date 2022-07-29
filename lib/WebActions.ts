@@ -19,12 +19,15 @@ export class WebActions {
     }
 
     async decipherPassword(): Promise<string> {
+
         const key = `SECRET`;
-        //ENCRYPT
-        // const cipher = CryptoJS.AES.encrypt('demouat',key);
-        // console.log(cipher.toString());
         return CryptoJS.AES.decrypt(testConfig.password, key).toString(CryptoJS.enc.Utf8);
     }
+    async encryptPassword(password_clear: string): Promise<string> {
+        const key = `SECRET`;      
+        return CryptoJS.AES.encrypt(password_clear, key).toString();
+    }
+
 
     async waitForElementAttached(locator: string): Promise<void> {
         await this.page.waitForSelector(locator);

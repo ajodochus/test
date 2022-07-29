@@ -7,13 +7,31 @@
 - basic playwright framework
 - page objects
 - multi environment usage
-- basic reporting
+- allure reporting
 - element repository
 - multi browser
+- API tests prove of concept: npx cross-env ENV=qaApi  playwright test api/GET.test.ts
 
+# cmd
 
+functional:
 npx cross-env ENV=tng  playwright test functional/Tnglogin.test.ts --headed --project=chrome 
-npx cross-env ENV=tng  playwright test --grep smoketest --headed --project=chrome 
+npx cross-env ENV=tng  playwright test --grep tng --headed --project=chrome 
+
+api:
+npx cross-env ENV=qaApi  playwright test api/GET.test.ts
+
+allure:
+cd allure-results
+allure serve .
+
+# ALLURE REPORTING
+install allure with Powershell : scoop install allure
+setup in project: https://www.youtube.com/watch?v=Pa7_klzkCXU (testmatch part in playwright.config.ts not neccessary)
+start your tests
+change into allure-result folder
+run: allure serve .
+
 
 TNG landingpage
 https://review-create-doc-pn8ux3.kube.devtng.com/

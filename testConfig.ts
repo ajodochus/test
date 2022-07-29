@@ -1,5 +1,7 @@
 export const testConfig = {
     qa: `http://automationpractice.com`,
+    qa_user: 'bwuser@mc5.email',
+    qa_password: '!qaY2wsx3edc4r',
     dev: ``,
     qaApi: `https://reqres.in`,
     devApi: ``,

@@ -21,9 +21,9 @@ export class TngVersioningPage extends TngVersioningPageObjects {
         await webActions.navigateToURL('');
     }
 
-    async verify_panel_title(): Promise<void> {
+    async verify_panel_headline(expected_txt: string): Promise<void> {
         
-        await webActions.verifyElementText(TngVersioningPageObjects.HEADLINE_TEXT, 'Folder Properties');
+        await webActions.verifyElementText(TngVersioningPageObjects.HEADLINE_TEXT, expected_txt);
     }
 
 /*
