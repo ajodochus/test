@@ -2,6 +2,9 @@ Tutorial: https://www.youtube.com/watch?v=WSd6-X-n6P8
 
 npx cross-env ENV=qa  playwright test functional/login.test.ts --headed --project=chrome 
 
+TNG landingpage
+https://review-create-doc-pn8ux3.kube.devtng.com/
+
 
 
 <!-- TABLE OF CONTENTS -->
