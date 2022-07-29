@@ -1,4 +1,16 @@
-Tutorial: https://www.youtube.com/watch?v=WSd6-X-n6P8
+# TODO
+- using docker for application under test
+- using docker for playwright ???
+- howto: setting up CI
+
+# DONE
+- basic playwright framework
+- page objects
+- multi environment usage
+- basic reporting
+- element repository
+- multi browser
+
 
 npx cross-env ENV=tng  playwright test functional/Tnglogin.test.ts --headed --project=chrome 
 npx cross-env ENV=tng  playwright test --grep smoketest --headed --project=chrome 
@@ -6,7 +18,7 @@ npx cross-env ENV=tng  playwright test --grep smoketest --headed --project=chrom
 TNG landingpage
 https://review-create-doc-pn8ux3.kube.devtng.com/
 
-
+Tutorial: https://www.youtube.com/watch?v=WSd6-X-n6P8
 
 <!-- TABLE OF CONTENTS -->
 <h2>
