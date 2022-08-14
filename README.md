@@ -1,10 +1,15 @@
 # TODO
-- handling dialog in .. for "new folder"
 - persistent login info (cookie, session)
-- tests one after another (no async/await): test.describe.configure({ mode: 'serial' });
+- create / delete folder with api
 - using docker for application under test
-- using docker for playwright ???
-- howto: setting up CI
+- docker
+- setting up CI stage for playwright
+- tests in serial, parallel  (no async/await): test.describe.configure({ mode: 'serial' });
+- running AUT with a defined database preset
+- Sonarqube
+- Lighthouse
+
+
 
 # DONE
 - basic playwright framework
@@ -14,15 +19,34 @@
 - element repository
 - multi browser
 - API tests prove of concept: npx cross-env ENV=qaApi  playwright test api/GET.test.ts
+- handling dialogs in .. for "new folder"
+
+# howto
+swagger
+https://production.kube.devtng.com/api/swagger/ui
+
+change baseurl during test (for example: to switch from api env to funtion env)
+test.use({ baseurl: 'http:...'});
 
 # cmd
 
 functional:
-npx cross-env ENV=tng  playwright test functional/Tnglogin.test.ts --headed --project=chrome 
-npx cross-env ENV=tng  playwright test --grep tng --headed --project=chrome 
+- all tng login tests headless
+  npx cross-env ENV=tng  playwright test functional/Tnglogin.test.ts --project=chrome 
+
+- tng debug and waiting for dialog for "create folder"
+  npx cross-env ENV=tng  playwright test functional/Tnglogin_wait_for_dialog.test.ts --headed --project=chrome --debug
+
+- tng get folder names by api request
+  npx cross-env ENV=tng  playwright test functional/TngLoginAndApi.test.ts --project=chrome 
+
+npx cross-env ENV=tng  playwright test --grep single --headed --project=chrome --debug
+npx cross-env ENV=tng  playwright test functional/Tnglogin.test.ts  
+
+
 
 api:
-npx cross-env ENV=qaApi  playwright test api/GET.test.ts
+npx cross-env ENV=qaApi  playwright test api/GET.test.ts --project=chrome
 
 allure:
 cd allure-results
@@ -36,8 +60,7 @@ change into allure-result folder
 run: allure serve .
 
 
-TNG landingpage
-https://review-create-doc-pn8ux3.kube.devtng.com/
+
 
 Tutorial: https://www.youtube.com/watch?v=WSd6-X-n6P8
 

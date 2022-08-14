@@ -1,7 +1,7 @@
 import { WebActions } from "@lib/WebActions";
 import { TngVersioningPageObjects } from "@objects/TngVersioningPageObjects";
 
-import type { Page } from '@playwright/test';
+import { expect, Page } from '@playwright/test';
 import {testConfig} from '../../testConfig';
 
 
@@ -24,7 +24,41 @@ export class TngVersioningPage extends TngVersioningPageObjects {
     async verify_panel_headline(expected_txt: string): Promise<void> {
         
         await webActions.verifyElementText(TngVersioningPageObjects.HEADLINE_TEXT, expected_txt);
+        
     }
+
+    async create_folder_wait_for_dialog(txt: string): Promise<void> {
+        this.page.on('console', msg => console.log("huhu"));
+        this.page.on('dialog',async (dialog) => {
+            console.log(dialog.message);
+            
+            //expect(dialog.message()).toContain('Folder Name');
+            //create new folder
+            //await dialog.accept('my new folder');
+            //await dialog.dismiss();
+        });
+        await webActions.clickElement(TngVersioningPageObjects.TEXTAREA_DESCRIPTION);
+        await webActions.enterElementText(TngVersioningPageObjects.TEXTAREA_DESCRIPTION, "hello");
+        await webActions.clickElement(TngVersioningPageObjects.BUTTON_NEW_FOLDER);
+        await webActions.clickElement(TngVersioningPageObjects.TEXTAREA_DESCRIPTION);
+    }
+
+    async create_folder(txt: string): Promise<void> {
+        this.page.on('console', msg => console.log("huhu"));
+        this.page.on('dialog',async (dialog) => {
+
+            
+            //expect(dialog.message()).toContain('Folder Name');
+            //create new folder
+            //await dialog.accept('my new folder');
+            await dialog.dismiss();
+        });
+        await webActions.clickElement(TngVersioningPageObjects.TEXTAREA_DESCRIPTION);
+        await webActions.enterElementText(TngVersioningPageObjects.TEXTAREA_DESCRIPTION, "hello");
+        await webActions.clickElement(TngVersioningPageObjects.BUTTON_NEW_FOLDER);
+        await webActions.clickElement(TngVersioningPageObjects.TEXTAREA_DESCRIPTION);
+    }
+
 
 /*
     async loginToApplication(): Promise<void> {

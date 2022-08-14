@@ -7,5 +7,5 @@ async function globalTeardown() {
     zip.addLocalFolder(reportPath, `./html-report`);
     zip.writeZip(`./html-report.zip`);
 }
-
+console.log("teardown");
 export default globalTeardown;

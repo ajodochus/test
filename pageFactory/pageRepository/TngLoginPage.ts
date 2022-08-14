@@ -26,5 +26,7 @@ export class TngLoginPage extends TngLoginPageObjects{
         await webActions.enterElementText(TngLoginPageObjects.PASSWORD_EDITBOX, testConfig.tng_password);
         //await webActions.enterElementText(TngLoginPageObjects.PASSWORD_EDITBOX, decipherPassword);
         await webActions.clickElement(TngLoginPageObjects.LOGIN_BUTTON);
+        let context_br = this.page.context();
+        context_br.storageState({path: './auth.json'});
     }
 }

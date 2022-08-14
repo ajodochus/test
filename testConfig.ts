@@ -1,8 +1,21 @@
 export const testConfig = {
+
+    // #################
+    // ENVIRONMENTS:
+    // #################
+
+    // Production stage
+    tng: 'https://production.kube.devtng.com',
+    tng_username: 'test1',
+    tng_password: 'test',
+
+    // 
     qa: `http://automationpractice.com`,
     qa_user: 'bwuser@mc5.email',
     qa_password: '!qaY2wsx3edc4r',
     dev: ``,
+
+    // api tests
     qaApi: `https://reqres.in`,
     devApi: ``,
     username: `demouat@gmail.com`,
@@ -13,7 +26,9 @@ export const testConfig = {
     dbServerName: ``,
     dbPort: ``,
     dbName: ``,
-    tng: `https://review-create-doc-pn8ux3.kube.devtng.com/`,
-    tng_username: 'test1',
-    tng_password: 'test'
+
+    // git api tests
+    gitApi: 'https://api.github.com',
+    gitApiToken: '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'
+    
 }

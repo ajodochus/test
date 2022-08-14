@@ -7,6 +7,11 @@ export class APIActions {
         await expect(response, `200 Status code was not displayed.`).toBeOK();
     }
 
+    async get_folders(response: APIResponse): Promise<void> {
+        await expect(response, `200 Status code was not displayed.`).toBeOK();
+    }
+
+
     async verifyHeaderKeysResponseBody(expectedResponseBodyParams: string, responsePart: JSON, responseType: string): Promise<void> {
         let status = true;
         let fieldNames = `Parameter`;

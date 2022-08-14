@@ -44,7 +44,11 @@ use: {
 
         //Picks Base Url based on User input
         baseURL: testConfig[process.env.ENV],
-
+        /*
+        extraHTTPHeaders: {
+          'Accept': 'application/json',
+        },
+*/
         //Browser Mode
         headless: true,
 
@@ -63,7 +67,7 @@ use: {
         //Slows down execution by ms
         launchOptions: {
           slowMo: 0
-        }
+        },
       },
     },
     {
