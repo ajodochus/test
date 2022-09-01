@@ -17,11 +17,10 @@ test('Login and show versioning page @tng', async ({ tngloginPage, tngVersioning
 });
 
 
-/*
+
 test('this test will fail; blabla is no valid text on this page @tng', async ({ tngloginPage, tngVersioningPage }) => {
     await tngloginPage.navigateToURL();
     await tngloginPage.loginToApplication();
     await tngVersioningPage.verify_panel_headline('that`s a wrong panel headline');  
     
 });
-*/

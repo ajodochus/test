@@ -27,6 +27,10 @@ export class TngVersioningPage extends TngVersioningPageObjects {
         
     }
 
+    async create_folder_through_api(txt: string): Promise<void> {
+
+    }
+
     async create_folder_wait_for_dialog(txt: string): Promise<void> {
         this.page.on('console', msg => console.log("huhu"));
         this.page.on('dialog',async (dialog) => {

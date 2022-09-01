@@ -1,10 +1,14 @@
 import fs from 'fs';
-import { APIResponse, expect } from '@playwright/test';
+import { APIResponse, expect, request} from '@playwright/test';
 
 export class APIActions {
 
     async verifyStatusCode(response: APIResponse): Promise<void> {
         await expect(response, `200 Status code was not displayed.`).toBeOK();
+    }
+
+    async get_folderId_by_folderName() {
+        
     }
 
     async get_folders(response: APIResponse): Promise<void> {

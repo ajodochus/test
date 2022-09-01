@@ -1,10 +1,11 @@
 import fs from 'fs';
 import * as CryptoJS from 'crypto-js';
-import type { Page } from '@playwright/test';
-import { BrowserContext, expect } from '@playwright/test';
+import { Page, request } from '@playwright/test';
+import { BrowserContext, expect, APIRequest } from '@playwright/test';
 import { Workbook } from 'exceljs';
 import { testConfig } from '../testConfig';
 import path from 'path';
+
 const waitForElement = testConfig.waitForElement;
 
 export class WebActions {

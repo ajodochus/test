@@ -5,7 +5,9 @@ export const testConfig = {
     // #################
 
     // Production stage
-    tng: 'https://production.kube.devtng.com',
+    tng: 'https://tng.localhost',
+
+    //tng: 'https://review-bw-dev-64u062.kube.devtng.com',
     tng_username: 'test1',
     tng_password: 'test',
 

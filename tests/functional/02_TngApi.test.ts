@@ -10,36 +10,77 @@ import { isAssertClause } from 'typescript';
 // I want to be able to see my landing page
 // by login with valid credetials
 
+
+
 const VAR_ENV = process.env.ENV;
 const apiActions = new APIActions();
 
 let var_response;
-    let body;
-    let json_text;
+let body;
+let json_text;
+let result;
 
-    test.use({storageState: './auth.json'});
-test('Api test', async ({ request, tngloginPage, tngVersioningPage }) => {
-    //test.use({ baseurl: 'http:...'});
+test.describe(() => {
+    //test.use({ storageState: './auth.json' });
+    test('Api test personality', async ({ request, tngloginPage, tngVersioningPage }) => {
 
-     await tngVersioningPage.navigateToURL();
-    await tngVersioningPage.verify_panel_headline('Folder Properties');  
-    //await apiActions.verifyStatusCode(response);
+        var_response = await request.get('/api/1.0/personality', {
+            headers:{
+                'accept-encoding': 'application/json'
+            }
+            
+        });
+        let body_perso = JSON.parse(await var_response.text());
+        let jp = require('jsonpath');
+        let get_folderId_by_name = jp.query(body_perso, '$..longName');
+        let stringify_perso = JSON.stringify(body_perso);
 
-    var_response = await request.get('/api/1.0/folder');
-    body = JSON.parse(await var_response.text());
-    //expect(body.data.id).toBe(2);
-    //expect(body.data.first_name).toBe("Janet");
-    //json_text = JSON.stringify(body.name);
-    json_text = JSON.stringify(body);
+        await test.step('personality text: ' + stringify_perso, async () => { });
+        await test.step('personality result: ' + get_folderId_by_name, async () => { });
+
+    });
+
+    test('get folder info', async ({ request, tngloginPage, tngVersioningPage }) => {
+        //test.use({ baseurl: 'http:...'});
+
+        //await tngVersioningPage.navigateToURL();
+        //await tngVersioningPage.verify_panel_headline('Folder Properties');
+        //await apiActions.verifyStatusCode(response);
+
+        var_response = await request.get('/api/1.0/folder');
+        body = JSON.parse(await var_response.text());
+
+        // search with jsonpath
+        let jp = require('jsonpath');
+        let get_all_folderId_by_name = jp.query(body, '$..name');
+        let get_folderId_by_folderName = jp.query(body, '$..children[?(@.name=="Bob Gargan")].folderId')
 
 
-    await test.step('response: ' + json_text , async () => {});
+        //expect(body.data.id).toBe(2);
+        //expect(body.data.first_name).toBe("Janet");
+        //json_text = JSON.stringify(body.name);
+        json_text = JSON.stringify(body);
+
+        // search with javascript object
+        const getByValue = value => {
+            for (let key of Object.keys(body)) if (body[key] === value) return key;
+        }
+
+        //search on the json file a object value with "test"
+        result = getByValue("OctoPlant");
 
 
-    
-   // await test.step('response: ' + JSON.parse((await issues.body()).toString()), async () => {});
-   //await test.step('response: ' +  issues.text, async () => {});
+    // await test.step('resp text: ' + json_text, async () => { });
+    // await test.step('resp json: ' + body, async () => { });
+    // await test.step('resp result: ' + get_all_folderId_by_name, async () => { });
+        await test.step('folderId from Bob Gardan: ' + get_folderId_by_folderName, async () => { process.env['FOLDER_ID'] = get_folderId_by_folderName });
+        // await test.step('response: ' + JSON.parse((await issues.body()).toString()), async () => {});
+        //await test.step('response: ' +  issues.text, async () => {});
+    });
+
+    test('check for process.env.FOLDER_ID', async ({ request, tngloginPage, tngVersioningPage }) => {
+
+        await test.step('env folderID: ' + process.env.FOLDER_ID, async () => { });
+
+    });
 });
-
-
-

@@ -1,17 +1,18 @@
 # TODO
-- persistent login info (cookie, session)
 - create / delete folder with api
 - using docker for application under test
 - docker
 - setting up CI stage for playwright
-- tests in serial, parallel  (no async/await): test.describe.configure({ mode: 'serial' });
 - running AUT with a defined database preset
-- Sonarqube
+- Sonarqube (Code Quality and Code Security)
 - Lighthouse
 
 
 
 # DONE
+- persistent login info (cookie, session)
+- tests in serial, parallel  (no async/await): test.describe.configure({ mode: 'serial' });
+
 - basic playwright framework
 - page objects
 - multi environment usage
@@ -20,10 +21,10 @@
 - multi browser
 - API tests prove of concept: npx cross-env ENV=qaApi  playwright test api/GET.test.ts
 - handling dialogs in .. for "new folder"
+- using jsonpath (npm install jsonpath)
 
 # howto
-swagger
-https://production.kube.devtng.com/api/swagger/ui
+
 
 change baseurl during test (for example: to switch from api env to funtion env)
 test.use({ baseurl: 'http:...'});
@@ -38,7 +39,7 @@ functional:
   npx cross-env ENV=tng  playwright test functional/Tnglogin_wait_for_dialog.test.ts --headed --project=chrome --debug
 
 - tng get folder names by api request
-  npx cross-env ENV=tng  playwright test functional/TngLoginAndApi.test.ts --project=chrome 
+  npx cross-env ENV=tng  playwright test functional/TngLoginAndApi.tests.ts --project=chrome 
 
 npx cross-env ENV=tng  playwright test --grep single --headed --project=chrome --debug
 npx cross-env ENV=tng  playwright test functional/Tnglogin.test.ts  
@@ -173,6 +174,10 @@ https://github.com/akshayp7/playwright-typescipt-playwright-test.git
 
 ```sh
 npm install
+```
+
+```sh
+npm install jsonpath
 ```
 
 <!-- USAGE EXAMPLES-->
