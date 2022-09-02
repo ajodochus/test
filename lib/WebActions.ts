@@ -164,6 +164,10 @@ export class WebActions {
             .catch(() => { throw new Error(`${errorMessage}`); });
     }
 
+    async verifyElementIsNotPresent(locator: string, errorMessage: string): Promise<void> {
+        await expect (await this.page.locator(locator).count()).toEqual(0);
+    }
+
     async expectToBeTrue(status: boolean, errorMessage: string): Promise<void> {
         expect(status, `${errorMessage}`).toBe(true);
     }

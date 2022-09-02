@@ -10,7 +10,7 @@ const VAR_ENV = process.env.ENV;
 test.describe.serial('login tests', () => {
     test('Login and show versioning page @tng', async ({ tngloginPage, tngVersioningPage }) => {
         await test.step('login' , async () => {
-            await tngVersioningPage.navigateToURL();
+            await tngVersioningPage.goto();
             await tngVersioningPage.verify_panel_headline('Folder Properties');
             //await tngVersioningPage.create_folder("new folder name");
             //await test.step('ENV var: ' + VAR_ENV, async () => {});

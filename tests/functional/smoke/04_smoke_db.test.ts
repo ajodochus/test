@@ -33,7 +33,11 @@ async function get_folderId_bei_name() {
     const result = await client.query("SELECT * FROM vs_folder WHERE vs_folder.name = 'Dans Folder'");
     const rows = result.rows;
     rows.forEach(row => {
-        console.log(`NAME: ${row.name} FOLDERID: ${row.folderId} DESCRIPTION: ${row.description} PARENTID: ${row.parentld}`);
+        console.log("#######################################################")
+        console.log(`NAME: ${row.name}`);
+        console.log(`FOLDERID: ${row.folderId}`);
+        //console.log(`NAME: ${row.name} FOLDERID: ${row.folderId} DESCRIPTION: ${row.description} PARENTID: ${row.parentld}`);
+        console.log("#######################################################")
     })
     await client.end();
 

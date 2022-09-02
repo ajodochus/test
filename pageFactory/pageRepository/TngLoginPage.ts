@@ -16,11 +16,11 @@ export class TngLoginPage extends TngLoginPageObjects{
     }
 
     
-    async navigateToURL(): Promise<void> {
+    async goto(): Promise<void> {
         await webActions.navigateToURL('');
     }
 
-    async loginToApplication(): Promise<void> {
+    async login(): Promise<void> {
         const decipherPassword = await webActions.decipherPassword();
         await webActions.enterElementText(TngLoginPageObjects.USERNAME_EDITBOX, testConfig.tng_username);
         await webActions.enterElementText(TngLoginPageObjects.PASSWORD_EDITBOX, testConfig.tng_password);

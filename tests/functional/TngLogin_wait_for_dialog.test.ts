@@ -5,8 +5,8 @@ const VAR_ENV = process.env.ENV;
 
 
 test('Login and show versioning page @wait_for_dialog', async ({ tngloginPage, tngVersioningPage }) => {
-    await tngloginPage.navigateToURL();
-    await tngloginPage.loginToApplication();
+    await tngloginPage.goto();
+    await tngloginPage.login();
     await tngVersioningPage.verify_panel_headline('Folder Properties');  
     await tngVersioningPage.create_folder_wait_for_dialog("new folder name");
     await test.step('ENV var: ' + VAR_ENV, async () => {});
