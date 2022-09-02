@@ -32,6 +32,15 @@ test.use({ baseurl: 'http:...'});
 # cmd
 
 functional:
+- against https://tng.localhost
+npx cross-env ENV=tnglocal playwright test 04 --workers=1 --project=firefox --headed
+- against https://review-bw-dev-64u062.kube.devtng.com
+npx cross-env ENV=tng playwright test 04 --workers=1 --project=firefox --headed
+- 01 --> Login and store session test
+- 02 --> API test (currently only working for kube.devtng, not localy)
+- 03 --> Tests for landing page "Versioning"
+- 04 --> Postgres DB test
+
 - all tng login tests headless
   npx cross-env ENV=tng  playwright test functional/Tnglogin.test.ts --project=chrome 
 
@@ -336,9 +345,19 @@ I have configure Lighthouse for Performance in my Project.
 npm run lighthouse
 ```
 
+## curl
+curl -i -X GET http://rest-api.io/items
+curl -i -X GET http://rest-api.io/items/5069b47aa892630aae059584
+curl -i -X DELETE http://rest-api.io/items/5069b47aa892630aae059584
+curl -i -X POST -H 'Content-Type: application/json' -d '{"name": "New item", "year": "2009"}' http://rest-api.io/items
+curl -i -X PUT -H 'Content-Type: application/json' -d '{"name": "Updated item", "year": "2010"}' http://rest-api.io/items/5069b47aa892630aae059584
+
 <!-- MARKDOWN LINKS & IMAGES -->
 
 [overall-report-screenshot]: ReadMeImages/OverallReport.PNG
 [detailed-report-screenshot]: ReadMeImages/DetailedReport.PNG
 [failure-report-screenshot]: ReadMeImages/FailureReport.PNG
 [sonar-report-screenshot]: ReadMeImages/SonarReport.PNG
+
+## HowTo
+await this.page.pause(); (within pageobject function)

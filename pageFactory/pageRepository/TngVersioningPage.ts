@@ -26,13 +26,17 @@ export class TngVersioningPage extends TngVersioningPageObjects {
         await webActions.verifyElementText(TngVersioningPageObjects.HEADLINE_TEXT, expected_txt);
         
     }
+    async click_nav_arrow_by_foldername(folder_name: string): Promise<void> {
+        await webActions.clickElement("//span[@class='p-treenode-label' and text()='"+ folder_name +"']/../button");
+        await this.page.pause();
+    }
 
     async create_folder_through_api(txt: string): Promise<void> {
 
     }
 
     async create_folder_wait_for_dialog(txt: string): Promise<void> {
-        this.page.on('console', msg => console.log("huhu"));
+
         this.page.on('dialog',async (dialog) => {
             console.log(dialog.message);
             
@@ -48,7 +52,6 @@ export class TngVersioningPage extends TngVersioningPageObjects {
     }
 
     async create_folder(txt: string): Promise<void> {
-        this.page.on('console', msg => console.log("huhu"));
         this.page.on('dialog',async (dialog) => {
 
             

@@ -5,12 +5,18 @@ export const testConfig = {
     // #################
 
     // Production stage
-    tng: 'https://tng.localhost',
+    //
 
-    //tng: 'https://review-bw-dev-64u062.kube.devtng.com',
+    tng: 'https://review-bw-dev-64u062.kube.devtng.com',
     tng_username: 'test1',
     tng_password: 'test',
 
+    tnglocal: 'https://tng.localhost',
+    tngdbusername: 'tng', // or postgres
+    tngdbpassword: 'tng', // or postgres
+    tngdbhost: 'localhost',
+    tngdbport: '5432',
+    tngdbname: 'tng', // or postgres
     // 
     qa: `http://automationpractice.com`,
     qa_user: 'bwuser@mc5.email',

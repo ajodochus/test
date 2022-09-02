@@ -8,7 +8,7 @@ test('Login to PHP travels. @example', async ({ loginPage, myAccountPage }) => {
     await myAccountPage.verifyMyAccountHeader();
 });
 
-test('encrypt. @example', async ({ loginPage }) => {
+test.skip('encrypt. @example', async ({ loginPage }) => {
     const enc = CryptoJS.AES.encrypt("mypass", "key").toString();
     await test.step(enc, async () => {});
     await test.step("hello", async () => {});
