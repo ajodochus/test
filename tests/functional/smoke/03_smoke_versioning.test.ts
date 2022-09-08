@@ -2,13 +2,8 @@ import test from '@lib/BaseTest';
 import { WebActions } from "@lib/WebActions";
 import { expect } from '@playwright/test';
 
-// xray ticket: otng-273
-// As a TNG user
-// I want to be able to see my landing page
-// by login with valid credetials
-
 const VAR_ENV = process.env.ENV;
-//test.use({ storageState: './auth.json' });
+// test.use({ storageState: './auth.json' });
 test('check for H4 for some folders @tng', async ({ tngloginPage, tngVersioningPage }) => {
     await test.step('login', async () => {
 

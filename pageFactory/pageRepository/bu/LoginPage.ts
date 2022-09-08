@@ -1,7 +1,7 @@
 import { LoginPageObjects } from "@objects/LoginPageObjects";
 import { WebActions } from "@lib/WebActions";
 import type { Page } from '@playwright/test';
-import {testConfig} from '../../testConfig';
+import {testConfig} from '../../../testConfig';
 
 let webActions: WebActions;
 

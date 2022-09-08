@@ -21,6 +21,7 @@ let json_text;
 let result;
 
 
+
 //expect(body.data.id).toBe(2);
 //expect(body.data.first_name).toBe("Janet");
 //json_text = JSON.stringify(body.name);
@@ -29,11 +30,11 @@ let result;
 test.use({ storageState: './auth.json' });
 //test.use({ httpCredentials: {username: 'test1', password: 'test'}})
 test.skip('Api personality', async ({ storageState, request, tngloginPage, tngVersioningPage }) => {
-    
+
     var_response = await request.get('/api/1.0/personality', {
         headers: {
             "accept-encoding": "application/json",
-            
+
         }
 
     });
@@ -54,10 +55,11 @@ test('api get folder id of root folder', async ({ request, tngloginPage, tngVers
 
     // search with jsonpath
     let body_stringify = JSON.stringify(body);
-    await test.step('env folderID for ROOT: ' + body_stringify , async () => { });
+    await test.step('env folderID for ROOT: ' + body_stringify, async () => { });
 });
 
-test('api get folder id of BOB GARGAN', async ({ request, tngloginPage, tngVersioningPage }) => {
+
+test.skip('api get folder id of BOB GARGAN', async ({ request, tngloginPage, tngVersioningPage }) => {
 
     var_response = await request.get('/api/1.0/folder');
     body = JSON.parse(await var_response.text());

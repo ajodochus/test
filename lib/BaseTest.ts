@@ -1,8 +1,8 @@
 import { test as baseTest } from '@playwright/test';
-import { LoginPage } from '@pages/LoginPage';
-import { MyAccountPage } from '@pages/MyAccountPage';
-import { MyAddressesPage } from '@pages/MyAddressesPage'
-import { MyPersonalInformationPage } from '@pages/MyPersonalInformationPage';
+import { LoginPage } from '@pages/bu/LoginPage';
+import { MyAccountPage } from '@pages/bu/MyAccountPage';
+import { MyAddressesPage } from '@pages/bu/MyAddressesPage'
+import { MyPersonalInformationPage } from '@pages/bu/MyPersonalInformationPage';
 
 import { TngLoginPage } from '@pages/TngLoginPage';
 import { TngVersioningPage } from '@pages/TngVersioningPage';
