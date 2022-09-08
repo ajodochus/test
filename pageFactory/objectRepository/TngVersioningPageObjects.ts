@@ -5,6 +5,9 @@ export class TngVersioningPageObjects {
     protected static ARROW_AT_TEXT = "//span[@class='p-treenode-label']/../button";
     protected static FOLDER_H4_TEXT = "//div[@class='p-panel-content']/h4";
     protected static TABVIEW_PROJECT_NAME = "//div[@class='tabview']/h2";
-    //'input[name="username"]';
+
+    // header
+    protected static BUTTON_PROFILE = "//span[@class='p-button-icon p-c pi pi-user']";
+    protected static BUTTON_LOGOUT = "text=Log out";
 
 }

@@ -21,6 +21,12 @@ export class TngVersioningPage extends TngVersioningPageObjects {
         await webActions.navigateToURL('');
     }
 
+    async logout(): Promise<void> {
+        await webActions.clickElement(TngVersioningPageObjects.BUTTON_PROFILE);
+        await webActions.clickElement(TngVersioningPage.BUTTON_LOGOUT);
+        await this.page.pause();
+    }
+
     async verify_panel_headline(expected_txt: string): Promise<void> {
 
         await webActions.verifyElementText(TngVersioningPageObjects.HEADLINE_TEXT, expected_txt);
@@ -35,7 +41,7 @@ export class TngVersioningPage extends TngVersioningPageObjects {
 
     async click_nav_arrow_by_foldername(folder_name: string): Promise<void> {
         await webActions.clickElement("//span[@class='p-treenode-label' and text()='" + folder_name + "']/../button");
-        await this.page.pause();
+       // await this.page.pause();
     }
 
     async unfold_and_verify_FOLDER_NAME(folder_seq: string[]): Promise<void> {

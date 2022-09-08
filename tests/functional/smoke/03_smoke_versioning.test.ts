@@ -30,5 +30,6 @@ test('check breadcrumb', async ({ tngloginPage, tngVersioningPage }) => {
         await tngVersioningPage.verify_panel_headline('Folder Properties');
         await tngVersioningPage.unfold_and_verify_PROJECT_NAME(folder_path);
         await expect(await tngVersioningPage.check_breadcrumb(folder_path)).toBe(true);
+        await tngVersioningPage.logout();
     });
 });
