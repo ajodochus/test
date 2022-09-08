@@ -1,5 +1,4 @@
 import { test as baseTest } from '@playwright/test';
-import { LoginPage } from '@pages/bu/LoginPage';
 import { MyAccountPage } from '@pages/bu/MyAccountPage';
 import { MyAddressesPage } from '@pages/bu/MyAddressesPage'
 import { MyPersonalInformationPage } from '@pages/bu/MyPersonalInformationPage';
@@ -11,7 +10,7 @@ const test = baseTest.extend<{
     tngloginPage: TngLoginPage;
     tngVersioningPage: TngVersioningPage;
 
-    loginPage: LoginPage;
+
     myAccountPage: MyAccountPage;
     myAddressesPage: MyAddressesPage;
     myPersonalInformationPage: MyPersonalInformationPage;
@@ -22,9 +21,6 @@ const test = baseTest.extend<{
     },
     tngVersioningPage: async ({ page }, use) => {
         await use(new TngVersioningPage(page));
-    },
-    loginPage: async ({ page }, use) => {
-        await use(new LoginPage(page));
     },
     myAccountPage: async ({ page }, use) => {
         await use(new MyAccountPage(page));

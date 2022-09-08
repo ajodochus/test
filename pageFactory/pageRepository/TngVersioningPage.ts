@@ -111,6 +111,12 @@ export class TngVersioningPage extends TngVersioningPageObjects {
         await webActions.clickElement(TngVersioningPageObjects.TEXTAREA_DESCRIPTION);
     }
 
+    async check_breadcrumb(txt: string[]): Promise<boolean> {
+        var result: boolean;
+        const all_breadcrumbs = await webActions.getTextFromWebElements("//span[@class='p-menuitem-text']");        
+        var result = JSON.stringify(all_breadcrumbs) == JSON.stringify(txt);
+        return result;
+    }
 
     /*
         async loginToApplication(): Promise<void> {

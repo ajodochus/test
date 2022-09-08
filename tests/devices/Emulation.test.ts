@@ -1,7 +1,7 @@
-import { LoginPage } from "@pages/bu/LoginPage";
+
 import { MyAccountPage } from "@pages/bu/MyAccountPage";
 import { test } from '@playwright/test';
-
+/* 
 test(`Verify My Personal Information.`, async ({ page }) => {
     const loginPage = new LoginPage(page);
     const myAccountPage = new MyAccountPage(page);
@@ -10,3 +10,4 @@ test(`Verify My Personal Information.`, async ({ page }) => {
     await loginPage.loginToApplication();
     await myAccountPage.verifyMyAccountHeader();
 });
+ */

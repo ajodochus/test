@@ -1,7 +1,7 @@
-import { LoginPage } from "@pages/bu/LoginPage";
+
 import { MyAccountPage } from "@pages/bu/MyAccountPage";
 import { expect, test } from '@playwright/test';
-
+/* 
 test(`Verify User Login.`, async ({ page }) => {
     const loginPage = new LoginPage(page);
     const myAccountPage = new MyAccountPage(page);
@@ -12,3 +12,4 @@ test(`Verify User Login.`, async ({ page }) => {
 
     expect(await page.screenshot()).toMatchSnapshot('MyAccountView.png');
 });
+ */
