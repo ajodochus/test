@@ -22,9 +22,9 @@ export class TngVersioningPage extends TngVersioningPageObjects {
     }
 
     async logout(): Promise<void> {
-        await webActions.clickElement(TngVersioningPageObjects.BUTTON_PROFILE);
-        await webActions.clickElement(TngVersioningPage.BUTTON_LOGOUT);
-        await this.page.pause();
+        await webActions.clickElement(TngVersioningPageObjects.BUTTON_USER_ICON);
+        await webActions.clickElement(TngVersioningPageObjects.BUTTON_LOGOUT);
+        //await this.page.pause();
     }
 
     async verify_panel_headline(expected_txt: string): Promise<void> {
@@ -120,7 +120,7 @@ export class TngVersioningPage extends TngVersioningPageObjects {
     async check_breadcrumb(txt: string[]): Promise<boolean> {
         var result: boolean;
         const all_breadcrumbs = await webActions.getTextFromWebElements("//span[@class='p-menuitem-text']");        
-        var result = JSON.stringify(all_breadcrumbs) == JSON.stringify(txt);
+        result = JSON.stringify(all_breadcrumbs) === JSON.stringify(txt);
         return result;
     }
 

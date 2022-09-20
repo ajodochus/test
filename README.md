@@ -1,18 +1,6 @@
-# TODO
-- create / delete folder with api
-- using docker for application under test
-- docker
-- setting up CI stage for playwright
-- running AUT with a defined database preset
-- Sonarqube (Code Quality and Code Security)
-- Lighthouse
-
-
-
 # DONE
 - persistent login info (cookie, session)
 - tests in serial, parallel  (no async/await): test.describe.configure({ mode: 'serial' });
-
 - basic playwright framework
 - page objects
 - multi environment usage
@@ -20,8 +8,20 @@
 - element repository
 - multi browser
 - API tests prove of concept: npx cross-env ENV=qaApi  playwright test api/GET.test.ts
-- handling dialogs in .. for "new folder"
-- using jsonpath (npm install jsonpath)
+- handling dialogs/popups in .. for "new folder"
+- using jsonpath (npm install jsonpath, usefull for api response evaluation)
+- TNG DB connection
+- custom/unique ids for testautomation identification
+
+
+# TODO
+- create / delete folder with api
+- api authentification (bearer token, basic auth ???)
+- setting up CI stage for playwright
+- running AUT with a defined database preset (migration presupposed)
+- Sonarqube (Code Quality and Code Security)
+- Lighthouse ( is an  open-source, automated tool (google) for improving the performance, quality, and correctness of your web apps)
+
 
 # howto
 
@@ -293,6 +293,16 @@ We can use this feature when webpage is down for some reason and we want to test
   ![Failure Report Screenshot][failure-report-screenshot]
 
 ## SonarQube
+- open Powershell: goto SQ binaries (E:\sonarqube\sonarqube-9.6.1.59531\bin\windows-x86-64) and install + start the service ('SonarService.bat. install' , 'SonarService start')
+- Within the project (where the sonar-project.properties lives) run 'sonar-scanner' to start the scan (Environment Variable must be set for sonar-scanner)
+
+> %SONAR_HOME%\bin\windows-x86-64\SonarService.bat install
+> %SONAR_HOME%\bin\windows-x86-64\SonarService.bat uninstall
+> %SONAR_HOME%\bin\windows-x86-64\SonarService.bat start
+> %SONAR_HOME%\bin\windows-x86-64\SonarService.bat stop
+> %SONAR_HOME%\bin\windows-x86-64\SonarService.bat status
+https://docs.sonarqube.org/latest/setup/operate-server/
+
 
 Once you have completed setup for SonarQube given in Prerequisites section, configure SonarQube as given below
 - Go to the path where sonarqube server(For e.g. : C:\SonarQube\sonarqube-9.1.0.47736) is unzipped -> Go to conf Folder -> open sonar.properties file and add the below prperties and save the file, you can give any port you wish I have used port 9000.
@@ -305,7 +315,7 @@ sonar.sourceEncoding=UTF-8
 - In your working project (playwright-typescipt-playwright-test), navigate to `sonar-project.properties` file and provide the credentials configured on server webpage username value in `sonar.login` and password in `sonar.password`, in my case username is `admin` and password was changed to `password`.
 ```JS
 sonar.login=admin
-sonar.password=password
+sonar.password=sq.123
 ```
 - You can provide any project name in `sonar.projectKey`.
 - Specify a version in `sonar.projectVersion`.
